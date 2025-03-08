@@ -18,6 +18,7 @@ public class UpdateTodoServelet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Retrieve form data
         int id = Integer.parseInt(request.getParameter("id"));
+        String rollno=request.getParameter("rollno");
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         String lastDate = request.getParameter("last_date");
@@ -29,7 +30,7 @@ public class UpdateTodoServelet extends HttpServlet {
 
         try {
             // Update the To-Do item in the database
-            dao.updateTodo(id, title, description, lastDate, status);
+            dao.updateTodo(id,rollno ,title, description, lastDate, status);
             response.sendRedirect("list"); // Redirect to the To-Do list page
         } catch (Exception e) {
             e.printStackTrace();

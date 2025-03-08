@@ -5,6 +5,7 @@ import java.sql.Date;
 
 public class Todo {
     private int id;
+    private String rollno;
     private String title;
     private String description;
     private Date last_date;
@@ -12,8 +13,9 @@ public class Todo {
 
     public Todo() {}
 
-    public Todo(int id, String title, String description,Date last_date, String status) {
+    public Todo(int id, String rollno ,String title, String description,Date last_date, String status) {
         this.id = id;
+        this.rollno=rollno;
         this.title = title;
         this.description = description;
         this.last_date = last_date;
@@ -26,6 +28,13 @@ public class Todo {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getRollno() {
+		return rollno;
+	}
+
+	public void setRollno(String rollno) {
+		this.rollno = rollno;
 	}
 
 	public String getTitle() {

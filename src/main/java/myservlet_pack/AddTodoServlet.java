@@ -14,14 +14,16 @@ import dao.DbUtil;
 import dao.TodoDao;
 import model.Todo;
 
+@SuppressWarnings("serial")
 @WebServlet("/add")
 public class AddTodoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String rollno=request.getParameter("rollno");
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         Date last_date = java.sql.Date.valueOf(request.getParameter("last_date"));
         
-        Todo todo = new Todo(0, title, description,last_date,"Pending");
+        Todo todo = new Todo(0, rollno,title, description,last_date,"Pending");
         Connection conn = DbUtil.getConnection();
         TodoDao dao = new TodoDao(conn);
         try {
